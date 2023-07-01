@@ -1,0 +1,905 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.71a build 6446 
+                                                                                               Thu Jan 05 11:22:49 2023
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 6446
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 6446"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           # 2 "C:\Users\Raghul\OneDrive\Desktop\PIC FILES\BLUETOOTHPROJECT\bluetoothproject.c"
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 2 "C:\Users\Raghul\OneDrive\Desktop\PIC FILES\BLUETOOTHPROJECT\bluetoothproject.c"
+    45  2007  3F72               	dw 0X3F72 ;#
+    46                           	FNROOT	_main
+    47                           	global	_PORTB
+    48                           psect	maintext,global,class=CODE,delta=2
+    49                           global __pmaintext
+    50  06A8                     __pmaintext:
+    51  0006                     _PORTB	set	6
+    52                           	global	_PORTC
+    53  0007                     _PORTC	set	7
+    54                           	global	_RCREG
+    55  001A                     _RCREG	set	26
+    56                           	global	_RCSTA
+    57  0018                     _RCSTA	set	24
+    58                           	global	_SPBRG
+    59  0099                     _SPBRG	set	153
+    60                           	global	_TRISB
+    61  0086                     _TRISB	set	134
+    62                           	global	_TRISC
+    63  0087                     _TRISC	set	135
+    64                           	global	_TXSTA
+    65  0098                     _TXSTA	set	152
+    66                           	global	_BRGH
+    67  04C2                     _BRGH	set	1218
+    68                           	file	"bluetoothproject.as"
+    69                           	line	#
+    70                           psect cinit,class=CODE,delta=2
+    71                           global start_initialization
+    72  06A4                     start_initialization:
+    73                           
+    74                           psect cinit,class=CODE,delta=2
+    75                           global end_of_initialization
+    76                           
+    77                           ;End of C runtime variable initialization code
+    78                           
+    79  06A4                     end_of_initialization:
+    80  06A4  0183               clrf status
+    81  06A5  120A  118A  2EA8   ljmp _main	;jump to C main() function
+    82                           psect	cstackCOMMON,class=COMMON,space=1
+    83                           global __pcstackCOMMON
+    84  0070                     __pcstackCOMMON:
+    85                           	global	?_main
+    86  0070                     ?_main:	; 0 bytes @ 0x0
+    87                           	global	??_main
+    88  0070                     ??_main:	; 0 bytes @ 0x0
+    89  0070                     	ds	3
+    90 ;;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 0 stack 0
+    91 ;;Auto spaces:   Size  Autos    Used
+    92 ;; COMMON          14      3       3
+    93 ;; BANK0           80      0       0
+    94 ;; BANK1           80      0       0
+    95 ;; BANK3           96      0       0
+    96 ;; BANK2           96      0       0
+    97                           
+    98 ;;
+    99 ;; Pointer list with targets:
+   100                           
+   101                           
+   102                           
+   103 ;;
+   104 ;; Critical Paths under _main in COMMON
+   105 ;;
+   106 ;;   None.
+   107 ;;
+   108 ;; Critical Paths under _main in BANK0
+   109 ;;
+   110 ;;   None.
+   111 ;;
+   112 ;; Critical Paths under _main in BANK1
+   113 ;;
+   114 ;;   None.
+   115 ;;
+   116 ;; Critical Paths under _main in BANK3
+   117 ;;
+   118 ;;   None.
+   119 ;;
+   120 ;; Critical Paths under _main in BANK2
+   121 ;;
+   122 ;;   None.
+   123                           
+   124 ;;
+   125 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   126 ;;
+   127                           
+   128 ;;
+   129 ;;Call Graph Tables:
+   130 ;;
+   131 ;; ---------------------------------------------------------------------------------
+   132 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   133 ;; ---------------------------------------------------------------------------------
+   134 ;; (0) _main                                                 3     3      0       0
+   135 ;;                                              0 COMMON     3     3      0
+   136 ;; ---------------------------------------------------------------------------------
+   137 ;; Estimated maximum stack depth 0
+   138 ;; ---------------------------------------------------------------------------------
+   139                           
+   140 ;; Call Graph Graphs:
+   141                           
+   142 ;; _main (ROOT)
+   143 ;;
+   144                           
+   145 ;; Address spaces:
+   146                           
+   147 ;;Name               Size   Autos  Total    Cost      Usage
+   148 ;;BITCOMMON            E      0       0       0        0.0%
+   149 ;;EEDATA             100      0       0       0        0.0%
+   150 ;;NULL                 0      0       0       0        0.0%
+   151 ;;CODE                 0      0       0       0        0.0%
+   152 ;;COMMON               E      3       3       1       21.4%
+   153 ;;BITSFR0              0      0       0       1        0.0%
+   154 ;;SFR0                 0      0       0       1        0.0%
+   155 ;;BITSFR1              0      0       0       2        0.0%
+   156 ;;SFR1                 0      0       0       2        0.0%
+   157 ;;STACK                0      0       0       2        0.0%
+   158 ;;ABS                  0      0       0       3        0.0%
+   159 ;;BITBANK0            50      0       0       4        0.0%
+   160 ;;BITSFR3              0      0       0       4        0.0%
+   161 ;;SFR3                 0      0       0       4        0.0%
+   162 ;;BANK0               50      0       0       5        0.0%
+   163 ;;BITSFR2              0      0       0       5        0.0%
+   164 ;;SFR2                 0      0       0       5        0.0%
+   165 ;;BITBANK1            50      0       0       6        0.0%
+   166 ;;BANK1               50      0       0       7        0.0%
+   167 ;;BITBANK3            60      0       0       8        0.0%
+   168 ;;BANK3               60      0       0       9        0.0%
+   169 ;;BITBANK2            60      0       0      10        0.0%
+   170 ;;BANK2               60      0       0      11        0.0%
+   171 ;;DATA                 0      0       0      12        0.0%
+   172                           
+   173                           	global	_main
+   174                           psect	maintext
+   175                           
+   176 ;; *************** function _main *****************
+   177 ;; Defined at:
+   178 ;;		line 7 in file "C:\Users\Raghul\OneDrive\Desktop\PIC FILES\BLUETOOTHPROJECT\bluetoothproject.c"
+   179 ;; Parameters:    Size  Location     Type
+   180 ;;		None
+   181 ;; Auto vars:     Size  Location     Type
+   182 ;;		None
+   183 ;; Return value:  Size  Location     Type
+   184 ;;		None               void
+   185 ;; Registers used:
+   186 ;;		wreg, status,2
+   187 ;; Tracked objects:
+   188 ;;		On entry : 17F/0
+   189 ;;		On exit  : 0/0
+   190 ;;		Unchanged: 0/0
+   191 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   192 ;;      Params:         0       0       0       0       0
+   193 ;;      Locals:         0       0       0       0       0
+   194 ;;      Temps:          3       0       0       0       0
+   195 ;;      Totals:         3       0       0       0       0
+   196 ;;Total ram usage:        3 bytes
+   197 ;; This function calls:
+   198 ;;		Nothing
+   199 ;; This function is called by:
+   200 ;;		Startup code after reset
+   201 ;; This function uses a non-reentrant model
+   202 ;;
+   203                           psect	maintext
+   204                           	file	"C:\Users\Raghul\OneDrive\Desktop\PIC FILES\BLUETOOTHPROJECT\bluetoothproject.c"
+   205                           	line	7
+   206                           	global	__size_of_main
+   207  0158                     	__size_of_main	equ	__end_of_main-_main
+   208                           	
+   209  06A8                     _main:	
+   210                           	opt	stack 8
+   211                           ; Regs used in _main: [wreg+status,2]
+   212                           	line	9
+   213                           	
+   214  06A8                     l1728:	
+   215                           ;bluetoothproject.c: 9: TRISC=0x80;
+   216  06A8  3080               	movlw	(080h)
+   217  06A9  1683               	bsf	status, 5	;RP0=1, select bank1
+   218  06AA  1303               	bcf	status, 6	;RP1=0, select bank1
+   219  06AB  0087               	movwf	(135)^080h	;volatile
+   220                           	line	10
+   221                           	
+   222  06AC                     l1730:	
+   223                           ;bluetoothproject.c: 10: PORTC=0x00;
+   224  06AC  1283               	bcf	status, 5	;RP0=0, select bank0
+   225  06AD  1303               	bcf	status, 6	;RP1=0, select bank0
+   226  06AE  0187               	clrf	(7)	;volatile
+   227                           	line	11
+   228                           	
+   229  06AF                     l1732:	
+   230                           ;bluetoothproject.c: 11: TRISB=0X00;
+   231  06AF  1683               	bsf	status, 5	;RP0=1, select bank1
+   232  06B0  1303               	bcf	status, 6	;RP1=0, select bank1
+   233  06B1  0186               	clrf	(134)^080h	;volatile
+   234                           	line	12
+   235                           ;bluetoothproject.c: 12: TXSTA=0x24;
+   236  06B2  3024               	movlw	(024h)
+   237  06B3  0098               	movwf	(152)^080h	;volatile
+   238                           	line	13
+   239                           ;bluetoothproject.c: 13: RCSTA=0x90;
+   240  06B4  3090               	movlw	(090h)
+   241  06B5  1283               	bcf	status, 5	;RP0=0, select bank0
+   242  06B6  1303               	bcf	status, 6	;RP1=0, select bank0
+   243  06B7  0098               	movwf	(24)	;volatile
+   244                           	line	14
+   245                           	
+   246  06B8                     l1734:	
+   247                           ;bluetoothproject.c: 14: BRGH=1;
+   248  06B8  1683               	bsf	status, 5	;RP0=1, select bank1
+   249  06B9  1303               	bcf	status, 6	;RP1=0, select bank1
+   250  06BA  1518               	bsf	(1218/8)^080h,(1218)&7
+   251                           	line	15
+   252                           ;bluetoothproject.c: 15: SPBRG=25;
+   253  06BB  3019               	movlw	(019h)
+   254  06BC  0099               	movwf	(153)^080h	;volatile
+   255                           	line	17
+   256                           ;bluetoothproject.c: 17: while (1)
+   257                           	
+   258  06BD                     l561:	
+   259                           	line	19
+   260                           ;bluetoothproject.c: 18: {
+   261                           ;bluetoothproject.c: 19: if (RCREG=='1')
+   262  06BD  1283               	bcf	status, 5	;RP0=0, select bank0
+   263  06BE  1303               	bcf	status, 6	;RP1=0, select bank0
+   264  06BF  081A               	movf	(26),w	;volatile
+   265  06C0  3A31               	xorlw	031h
+   266  06C1  1D03               	skipz
+   267  06C2  2EC4               	goto	u2141
+   268  06C3  2EC5               	goto	u2140
+   269  06C4                     u2141:
+   270  06C4  2EC8               	goto	l562
+   271  06C5                     u2140:
+   272                           	line	21
+   273                           	
+   274  06C5                     l1736:	
+   275                           ;bluetoothproject.c: 20: {
+   276                           ;bluetoothproject.c: 21: PORTB=0X0F;
+   277  06C5  300F               	movlw	(0Fh)
+   278  06C6  0086               	movwf	(6)	;volatile
+   279                           	line	23
+   280                           ;bluetoothproject.c: 23: }
+   281  06C7  2FFC               	goto	l563
+   282                           	line	24
+   283                           	
+   284  06C8                     l562:	
+   285                           	
+   286  06C8                     l1738:	
+   287                           ;bluetoothproject.c: 24: else if(RCREG=='2')
+   288  06C8  081A               	movf	(26),w	;volatile
+   289  06C9  3A32               	xorlw	032h
+   290  06CA  1D03               	skipz
+   291  06CB  2ECD               	goto	u2151
+   292  06CC  2ECE               	goto	u2150
+   293  06CD                     u2151:
+   294  06CD  2ED1               	goto	l564
+   295  06CE                     u2150:
+   296                           	line	26
+   297                           	
+   298  06CE                     l1740:	
+   299                           ;bluetoothproject.c: 25: {
+   300                           ;bluetoothproject.c: 26: PORTB=0X55;
+   301  06CE  3055               	movlw	(055h)
+   302  06CF  0086               	movwf	(6)	;volatile
+   303                           	line	27
+   304                           ;bluetoothproject.c: 27: }
+   305  06D0  2FFC               	goto	l565
+   306                           	line	28
+   307                           	
+   308  06D1                     l564:	
+   309                           	
+   310  06D1                     l1742:	
+   311                           ;bluetoothproject.c: 28: else if(RCREG=='3')
+   312  06D1  081A               	movf	(26),w	;volatile
+   313  06D2  3A33               	xorlw	033h
+   314  06D3  1D03               	skipz
+   315  06D4  2ED6               	goto	u2161
+   316  06D5  2ED7               	goto	u2160
+   317  06D6                     u2161:
+   318  06D6  2EDA               	goto	l566
+   319  06D7                     u2160:
+   320                           	line	30
+   321                           	
+   322  06D7                     l1744:	
+   323                           ;bluetoothproject.c: 29: {
+   324                           ;bluetoothproject.c: 30: PORTB=0XAA;
+   325  06D7  30AA               	movlw	(0AAh)
+   326  06D8  0086               	movwf	(6)	;volatile
+   327                           	line	32
+   328                           ;bluetoothproject.c: 32: }
+   329  06D9  2FFC               	goto	l567
+   330                           	line	33
+   331                           	
+   332  06DA                     l566:	
+   333                           	
+   334  06DA                     l1746:	
+   335                           ;bluetoothproject.c: 33: else if(RCREG=='4')
+   336  06DA  081A               	movf	(26),w	;volatile
+   337  06DB  3A34               	xorlw	034h
+   338  06DC  1D03               	skipz
+   339  06DD  2EDF               	goto	u2171
+   340  06DE  2EE0               	goto	u2170
+   341  06DF                     u2171:
+   342  06DF  2EFE               	goto	l568
+   343  06E0                     u2170:
+   344                           	line	36
+   345                           	
+   346  06E0                     l1748:	
+   347                           ;bluetoothproject.c: 34: {
+   348                           ;bluetoothproject.c: 36: PORTB=0XFF;
+   349  06E0  30FF               	movlw	(0FFh)
+   350  06E1  0086               	movwf	(6)	;volatile
+   351                           	line	37
+   352                           ;bluetoothproject.c: 37: _delay((unsigned long)((1000)*(4000000/4000.0)));
+   353                           	opt asmopt_off
+   354  06E2  3006               movlw  6
+   355  06E3  00F2               movwf	((??_main+0)+0+2),f
+   356  06E4  300E               movlw	14
+   357  06E5  00F1               movwf	((??_main+0)+0+1),f
+   358  06E6  30B0               	movlw	176
+   359  06E7  00F0               movwf	((??_main+0)+0),f
+   360  06E8                     u2197:
+   361  06E8  0BF0               	decfsz	((??_main+0)+0),f
+   362  06E9  2EE8               	goto	u2197
+   363  06EA  0BF1               	decfsz	((??_main+0)+0+1),f
+   364  06EB  2EE8               	goto	u2197
+   365  06EC  0BF2               	decfsz	((??_main+0)+0+2),f
+   366  06ED  2EE8               	goto	u2197
+   367                           opt asmopt_on
+   368                           
+   369                           	line	38
+   370                           	
+   371  06EE                     l1750:	
+   372                           ;bluetoothproject.c: 38: PORTB=0X00;
+   373  06EE  1283               	bcf	status, 5	;RP0=0, select bank0
+   374  06EF  1303               	bcf	status, 6	;RP1=0, select bank0
+   375  06F0  0186               	clrf	(6)	;volatile
+   376                           	line	39
+   377                           	
+   378  06F1                     l1752:	
+   379                           ;bluetoothproject.c: 39: _delay((unsigned long)((1000)*(4000000/4000.0)));
+   380                           	opt asmopt_off
+   381  06F1  3006               movlw  6
+   382  06F2  00F2               movwf	((??_main+0)+0+2),f
+   383  06F3  300E               movlw	14
+   384  06F4  00F1               movwf	((??_main+0)+0+1),f
+   385  06F5  30B0               	movlw	176
+   386  06F6  00F0               movwf	((??_main+0)+0),f
+   387  06F7                     u2207:
+   388  06F7  0BF0               	decfsz	((??_main+0)+0),f
+   389  06F8  2EF7               	goto	u2207
+   390  06F9  0BF1               	decfsz	((??_main+0)+0+1),f
+   391  06FA  2EF7               	goto	u2207
+   392  06FB  0BF2               	decfsz	((??_main+0)+0+2),f
+   393  06FC  2EF7               	goto	u2207
+   394                           opt asmopt_on
+   395                           
+   396                           	line	40
+   397                           ;bluetoothproject.c: 40: }
+   398  06FD  2FFC               	goto	l569
+   399                           	line	41
+   400                           	
+   401  06FE                     l568:	
+   402                           	
+   403  06FE                     l1754:	
+   404                           ;bluetoothproject.c: 41: else if(RCREG=='5')
+   405  06FE  1283               	bcf	status, 5	;RP0=0, select bank0
+   406  06FF  1303               	bcf	status, 6	;RP1=0, select bank0
+   407  0700  081A               	movf	(26),w	;volatile
+   408  0701  3A35               	xorlw	035h
+   409  0702  1D03               	skipz
+   410  0703  2F05               	goto	u2181
+   411  0704  2F06               	goto	u2180
+   412  0705                     u2181:
+   413  0705  2FFC               	goto	l570
+   414  0706                     u2180:
+   415                           	line	44
+   416                           	
+   417  0706                     l1756:	
+   418                           ;bluetoothproject.c: 42: {
+   419                           ;bluetoothproject.c: 44: PORTB=0X01;
+   420  0706  3001               	movlw	(01h)
+   421  0707  0086               	movwf	(6)	;volatile
+   422                           	line	45
+   423                           ;bluetoothproject.c: 45: _delay((unsigned long)((1000)*(4000000/4000.0)));
+   424                           	opt asmopt_off
+   425  0708  3006               movlw  6
+   426  0709  00F2               movwf	((??_main+0)+0+2),f
+   427  070A  300E               movlw	14
+   428  070B  00F1               movwf	((??_main+0)+0+1),f
+   429  070C  30B0               	movlw	176
+   430  070D  00F0               movwf	((??_main+0)+0),f
+   431  070E                     u2217:
+   432  070E  0BF0               	decfsz	((??_main+0)+0),f
+   433  070F  2F0E               	goto	u2217
+   434  0710  0BF1               	decfsz	((??_main+0)+0+1),f
+   435  0711  2F0E               	goto	u2217
+   436  0712  0BF2               	decfsz	((??_main+0)+0+2),f
+   437  0713  2F0E               	goto	u2217
+   438                           opt asmopt_on
+   439                           
+   440                           	line	46
+   441                           	
+   442  0714                     l1758:	
+   443                           ;bluetoothproject.c: 46: PORTB=0X00;
+   444  0714  1283               	bcf	status, 5	;RP0=0, select bank0
+   445  0715  1303               	bcf	status, 6	;RP1=0, select bank0
+   446  0716  0186               	clrf	(6)	;volatile
+   447                           	line	47
+   448                           	
+   449  0717                     l1760:	
+   450                           ;bluetoothproject.c: 47: _delay((unsigned long)((1000)*(4000000/4000.0)));
+   451                           	opt asmopt_off
+   452  0717  3006               movlw  6
+   453  0718  00F2               movwf	((??_main+0)+0+2),f
+   454  0719  300E               movlw	14
+   455  071A  00F1               movwf	((??_main+0)+0+1),f
+   456  071B  30B0               	movlw	176
+   457  071C  00F0               movwf	((??_main+0)+0),f
+   458  071D                     u2227:
+   459  071D  0BF0               	decfsz	((??_main+0)+0),f
+   460  071E  2F1D               	goto	u2227
+   461  071F  0BF1               	decfsz	((??_main+0)+0+1),f
+   462  0720  2F1D               	goto	u2227
+   463  0721  0BF2               	decfsz	((??_main+0)+0+2),f
+   464  0722  2F1D               	goto	u2227
+   465                           opt asmopt_on
+   466                           
+   467                           	line	48
+   468                           	
+   469  0723                     l1762:	
+   470                           ;bluetoothproject.c: 48: PORTB=0X02;
+   471  0723  3002               	movlw	(02h)
+   472  0724  1283               	bcf	status, 5	;RP0=0, select bank0
+   473  0725  1303               	bcf	status, 6	;RP1=0, select bank0
+   474  0726  0086               	movwf	(6)	;volatile
+   475                           	line	49
+   476                           	
+   477  0727                     l1764:	
+   478                           ;bluetoothproject.c: 49: _delay((unsigned long)((1000)*(4000000/4000.0)));
+   479                           	opt asmopt_off
+   480  0727  3006               movlw  6
+   481  0728  00F2               movwf	((??_main+0)+0+2),f
+   482  0729  300E               movlw	14
+   483  072A  00F1               movwf	((??_main+0)+0+1),f
+   484  072B  30B0               	movlw	176
+   485  072C  00F0               movwf	((??_main+0)+0),f
+   486  072D                     u2237:
+   487  072D  0BF0               	decfsz	((??_main+0)+0),f
+   488  072E  2F2D               	goto	u2237
+   489  072F  0BF1               	decfsz	((??_main+0)+0+1),f
+   490  0730  2F2D               	goto	u2237
+   491  0731  0BF2               	decfsz	((??_main+0)+0+2),f
+   492  0732  2F2D               	goto	u2237
+   493                           opt asmopt_on
+   494                           
+   495                           	line	50
+   496                           ;bluetoothproject.c: 50: PORTB=0X00;
+   497  0733  1283               	bcf	status, 5	;RP0=0, select bank0
+   498  0734  1303               	bcf	status, 6	;RP1=0, select bank0
+   499  0735  0186               	clrf	(6)	;volatile
+   500                           	line	51
+   501                           	
+   502  0736                     l1766:	
+   503                           ;bluetoothproject.c: 51: _delay((unsigned long)((1000)*(4000000/4000.0)));
+   504                           	opt asmopt_off
+   505  0736  3006               movlw  6
+   506  0737  00F2               movwf	((??_main+0)+0+2),f
+   507  0738  300E               movlw	14
+   508  0739  00F1               movwf	((??_main+0)+0+1),f
+   509  073A  30B0               	movlw	176
+   510  073B  00F0               movwf	((??_main+0)+0),f
+   511  073C                     u2247:
+   512  073C  0BF0               	decfsz	((??_main+0)+0),f
+   513  073D  2F3C               	goto	u2247
+   514  073E  0BF1               	decfsz	((??_main+0)+0+1),f
+   515  073F  2F3C               	goto	u2247
+   516  0740  0BF2               	decfsz	((??_main+0)+0+2),f
+   517  0741  2F3C               	goto	u2247
+   518                           opt asmopt_on
+   519                           
+   520                           	line	52
+   521                           	
+   522  0742                     l1768:	
+   523                           ;bluetoothproject.c: 52: PORTB=0X04;
+   524  0742  3004               	movlw	(04h)
+   525  0743  1283               	bcf	status, 5	;RP0=0, select bank0
+   526  0744  1303               	bcf	status, 6	;RP1=0, select bank0
+   527  0745  0086               	movwf	(6)	;volatile
+   528                           	line	53
+   529                           	
+   530  0746                     l1770:	
+   531                           ;bluetoothproject.c: 53: _delay((unsigned long)((1000)*(4000000/4000.0)));
+   532                           	opt asmopt_off
+   533  0746  3006               movlw  6
+   534  0747  00F2               movwf	((??_main+0)+0+2),f
+   535  0748  300E               movlw	14
+   536  0749  00F1               movwf	((??_main+0)+0+1),f
+   537  074A  30B0               	movlw	176
+   538  074B  00F0               movwf	((??_main+0)+0),f
+   539  074C                     u2257:
+   540  074C  0BF0               	decfsz	((??_main+0)+0),f
+   541  074D  2F4C               	goto	u2257
+   542  074E  0BF1               	decfsz	((??_main+0)+0+1),f
+   543  074F  2F4C               	goto	u2257
+   544  0750  0BF2               	decfsz	((??_main+0)+0+2),f
+   545  0751  2F4C               	goto	u2257
+   546                           opt asmopt_on
+   547                           
+   548                           	line	54
+   549                           	
+   550  0752                     l1772:	
+   551                           ;bluetoothproject.c: 54: PORTB=0X0;
+   552  0752  1283               	bcf	status, 5	;RP0=0, select bank0
+   553  0753  1303               	bcf	status, 6	;RP1=0, select bank0
+   554  0754  0186               	clrf	(6)	;volatile
+   555                           	line	55
+   556                           ;bluetoothproject.c: 55: _delay((unsigned long)((1000)*(4000000/4000.0)));
+   557                           	opt asmopt_off
+   558  0755  3006               movlw  6
+   559  0756  00F2               movwf	((??_main+0)+0+2),f
+   560  0757  300E               movlw	14
+   561  0758  00F1               movwf	((??_main+0)+0+1),f
+   562  0759  30B0               	movlw	176
+   563  075A  00F0               movwf	((??_main+0)+0),f
+   564  075B                     u2267:
+   565  075B  0BF0               	decfsz	((??_main+0)+0),f
+   566  075C  2F5B               	goto	u2267
+   567  075D  0BF1               	decfsz	((??_main+0)+0+1),f
+   568  075E  2F5B               	goto	u2267
+   569  075F  0BF2               	decfsz	((??_main+0)+0+2),f
+   570  0760  2F5B               	goto	u2267
+   571                           opt asmopt_on
+   572                           
+   573                           	line	56
+   574                           ;bluetoothproject.c: 56: PORTB=0X08;
+   575  0761  3008               	movlw	(08h)
+   576  0762  1283               	bcf	status, 5	;RP0=0, select bank0
+   577  0763  1303               	bcf	status, 6	;RP1=0, select bank0
+   578  0764  0086               	movwf	(6)	;volatile
+   579                           	line	57
+   580                           ;bluetoothproject.c: 57: _delay((unsigned long)((1000)*(4000000/4000.0)));
+   581                           	opt asmopt_off
+   582  0765  3006               movlw  6
+   583  0766  00F2               movwf	((??_main+0)+0+2),f
+   584  0767  300E               movlw	14
+   585  0768  00F1               movwf	((??_main+0)+0+1),f
+   586  0769  30B0               	movlw	176
+   587  076A  00F0               movwf	((??_main+0)+0),f
+   588  076B                     u2277:
+   589  076B  0BF0               	decfsz	((??_main+0)+0),f
+   590  076C  2F6B               	goto	u2277
+   591  076D  0BF1               	decfsz	((??_main+0)+0+1),f
+   592  076E  2F6B               	goto	u2277
+   593  076F  0BF2               	decfsz	((??_main+0)+0+2),f
+   594  0770  2F6B               	goto	u2277
+   595                           opt asmopt_on
+   596                           
+   597                           	line	58
+   598                           	
+   599  0771                     l1774:	
+   600                           ;bluetoothproject.c: 58: PORTB=0X00;
+   601  0771  1283               	bcf	status, 5	;RP0=0, select bank0
+   602  0772  1303               	bcf	status, 6	;RP1=0, select bank0
+   603  0773  0186               	clrf	(6)	;volatile
+   604                           	line	59
+   605                           	
+   606  0774                     l1776:	
+   607                           ;bluetoothproject.c: 59: _delay((unsigned long)((1000)*(4000000/4000.0)));
+   608                           	opt asmopt_off
+   609  0774  3006               movlw  6
+   610  0775  00F2               movwf	((??_main+0)+0+2),f
+   611  0776  300E               movlw	14
+   612  0777  00F1               movwf	((??_main+0)+0+1),f
+   613  0778  30B0               	movlw	176
+   614  0779  00F0               movwf	((??_main+0)+0),f
+   615  077A                     u2287:
+   616  077A  0BF0               	decfsz	((??_main+0)+0),f
+   617  077B  2F7A               	goto	u2287
+   618  077C  0BF1               	decfsz	((??_main+0)+0+1),f
+   619  077D  2F7A               	goto	u2287
+   620  077E  0BF2               	decfsz	((??_main+0)+0+2),f
+   621  077F  2F7A               	goto	u2287
+   622                           opt asmopt_on
+   623                           
+   624                           	line	60
+   625                           	
+   626  0780                     l1778:	
+   627                           ;bluetoothproject.c: 60: PORTB=0X10;
+   628  0780  3010               	movlw	(010h)
+   629  0781  1283               	bcf	status, 5	;RP0=0, select bank0
+   630  0782  1303               	bcf	status, 6	;RP1=0, select bank0
+   631  0783  0086               	movwf	(6)	;volatile
+   632                           	line	61
+   633                           	
+   634  0784                     l1780:	
+   635                           ;bluetoothproject.c: 61: _delay((unsigned long)((1000)*(4000000/4000.0)));
+   636                           	opt asmopt_off
+   637  0784  3006               movlw  6
+   638  0785  00F2               movwf	((??_main+0)+0+2),f
+   639  0786  300E               movlw	14
+   640  0787  00F1               movwf	((??_main+0)+0+1),f
+   641  0788  30B0               	movlw	176
+   642  0789  00F0               movwf	((??_main+0)+0),f
+   643  078A                     u2297:
+   644  078A  0BF0               	decfsz	((??_main+0)+0),f
+   645  078B  2F8A               	goto	u2297
+   646  078C  0BF1               	decfsz	((??_main+0)+0+1),f
+   647  078D  2F8A               	goto	u2297
+   648  078E  0BF2               	decfsz	((??_main+0)+0+2),f
+   649  078F  2F8A               	goto	u2297
+   650                           opt asmopt_on
+   651                           
+   652                           	line	62
+   653                           ;bluetoothproject.c: 62: PORTB=0X00;
+   654  0790  1283               	bcf	status, 5	;RP0=0, select bank0
+   655  0791  1303               	bcf	status, 6	;RP1=0, select bank0
+   656  0792  0186               	clrf	(6)	;volatile
+   657                           	line	63
+   658                           	
+   659  0793                     l1782:	
+   660                           ;bluetoothproject.c: 63: _delay((unsigned long)((1000)*(4000000/4000.0)));
+   661                           	opt asmopt_off
+   662  0793  3006               movlw  6
+   663  0794  00F2               movwf	((??_main+0)+0+2),f
+   664  0795  300E               movlw	14
+   665  0796  00F1               movwf	((??_main+0)+0+1),f
+   666  0797  30B0               	movlw	176
+   667  0798  00F0               movwf	((??_main+0)+0),f
+   668  0799                     u2307:
+   669  0799  0BF0               	decfsz	((??_main+0)+0),f
+   670  079A  2F99               	goto	u2307
+   671  079B  0BF1               	decfsz	((??_main+0)+0+1),f
+   672  079C  2F99               	goto	u2307
+   673  079D  0BF2               	decfsz	((??_main+0)+0+2),f
+   674  079E  2F99               	goto	u2307
+   675                           opt asmopt_on
+   676                           
+   677                           	line	64
+   678                           	
+   679  079F                     l1784:	
+   680                           ;bluetoothproject.c: 64: PORTB=0X20;
+   681  079F  3020               	movlw	(020h)
+   682  07A0  1283               	bcf	status, 5	;RP0=0, select bank0
+   683  07A1  1303               	bcf	status, 6	;RP1=0, select bank0
+   684  07A2  0086               	movwf	(6)	;volatile
+   685                           	line	65
+   686                           	
+   687  07A3                     l1786:	
+   688                           ;bluetoothproject.c: 65: _delay((unsigned long)((1000)*(4000000/4000.0)));
+   689                           	opt asmopt_off
+   690  07A3  3006               movlw  6
+   691  07A4  00F2               movwf	((??_main+0)+0+2),f
+   692  07A5  300E               movlw	14
+   693  07A6  00F1               movwf	((??_main+0)+0+1),f
+   694  07A7  30B0               	movlw	176
+   695  07A8  00F0               movwf	((??_main+0)+0),f
+   696  07A9                     u2317:
+   697  07A9  0BF0               	decfsz	((??_main+0)+0),f
+   698  07AA  2FA9               	goto	u2317
+   699  07AB  0BF1               	decfsz	((??_main+0)+0+1),f
+   700  07AC  2FA9               	goto	u2317
+   701  07AD  0BF2               	decfsz	((??_main+0)+0+2),f
+   702  07AE  2FA9               	goto	u2317
+   703                           opt asmopt_on
+   704                           
+   705                           	line	66
+   706                           	
+   707  07AF                     l1788:	
+   708                           ;bluetoothproject.c: 66: PORTB=0X00;
+   709  07AF  1283               	bcf	status, 5	;RP0=0, select bank0
+   710  07B0  1303               	bcf	status, 6	;RP1=0, select bank0
+   711  07B1  0186               	clrf	(6)	;volatile
+   712                           	line	67
+   713                           ;bluetoothproject.c: 67: _delay((unsigned long)((1000)*(4000000/4000.0)));
+   714                           	opt asmopt_off
+   715  07B2  3006               movlw  6
+   716  07B3  00F2               movwf	((??_main+0)+0+2),f
+   717  07B4  300E               movlw	14
+   718  07B5  00F1               movwf	((??_main+0)+0+1),f
+   719  07B6  30B0               	movlw	176
+   720  07B7  00F0               movwf	((??_main+0)+0),f
+   721  07B8                     u2327:
+   722  07B8  0BF0               	decfsz	((??_main+0)+0),f
+   723  07B9  2FB8               	goto	u2327
+   724  07BA  0BF1               	decfsz	((??_main+0)+0+1),f
+   725  07BB  2FB8               	goto	u2327
+   726  07BC  0BF2               	decfsz	((??_main+0)+0+2),f
+   727  07BD  2FB8               	goto	u2327
+   728                           opt asmopt_on
+   729                           
+   730                           	line	68
+   731                           ;bluetoothproject.c: 68: PORTB=0X40;
+   732  07BE  3040               	movlw	(040h)
+   733  07BF  1283               	bcf	status, 5	;RP0=0, select bank0
+   734  07C0  1303               	bcf	status, 6	;RP1=0, select bank0
+   735  07C1  0086               	movwf	(6)	;volatile
+   736                           	line	69
+   737                           ;bluetoothproject.c: 69: _delay((unsigned long)((1000)*(4000000/4000.0)));
+   738                           	opt asmopt_off
+   739  07C2  3006               movlw  6
+   740  07C3  00F2               movwf	((??_main+0)+0+2),f
+   741  07C4  300E               movlw	14
+   742  07C5  00F1               movwf	((??_main+0)+0+1),f
+   743  07C6  30B0               	movlw	176
+   744  07C7  00F0               movwf	((??_main+0)+0),f
+   745  07C8                     u2337:
+   746  07C8  0BF0               	decfsz	((??_main+0)+0),f
+   747  07C9  2FC8               	goto	u2337
+   748  07CA  0BF1               	decfsz	((??_main+0)+0+1),f
+   749  07CB  2FC8               	goto	u2337
+   750  07CC  0BF2               	decfsz	((??_main+0)+0+2),f
+   751  07CD  2FC8               	goto	u2337
+   752                           opt asmopt_on
+   753                           
+   754                           	line	70
+   755                           	
+   756  07CE                     l1790:	
+   757                           ;bluetoothproject.c: 70: PORTB=0X00;
+   758  07CE  1283               	bcf	status, 5	;RP0=0, select bank0
+   759  07CF  1303               	bcf	status, 6	;RP1=0, select bank0
+   760  07D0  0186               	clrf	(6)	;volatile
+   761                           	line	71
+   762                           	
+   763  07D1                     l1792:	
+   764                           ;bluetoothproject.c: 71: _delay((unsigned long)((1000)*(4000000/4000.0)));
+   765                           	opt asmopt_off
+   766  07D1  3006               movlw  6
+   767  07D2  00F2               movwf	((??_main+0)+0+2),f
+   768  07D3  300E               movlw	14
+   769  07D4  00F1               movwf	((??_main+0)+0+1),f
+   770  07D5  30B0               	movlw	176
+   771  07D6  00F0               movwf	((??_main+0)+0),f
+   772  07D7                     u2347:
+   773  07D7  0BF0               	decfsz	((??_main+0)+0),f
+   774  07D8  2FD7               	goto	u2347
+   775  07D9  0BF1               	decfsz	((??_main+0)+0+1),f
+   776  07DA  2FD7               	goto	u2347
+   777  07DB  0BF2               	decfsz	((??_main+0)+0+2),f
+   778  07DC  2FD7               	goto	u2347
+   779                           opt asmopt_on
+   780                           
+   781                           	line	72
+   782                           	
+   783  07DD                     l1794:	
+   784                           ;bluetoothproject.c: 72: PORTB=0X80;
+   785  07DD  3080               	movlw	(080h)
+   786  07DE  1283               	bcf	status, 5	;RP0=0, select bank0
+   787  07DF  1303               	bcf	status, 6	;RP1=0, select bank0
+   788  07E0  0086               	movwf	(6)	;volatile
+   789                           	line	73
+   790                           	
+   791  07E1                     l1796:	
+   792                           ;bluetoothproject.c: 73: _delay((unsigned long)((1000)*(4000000/4000.0)));
+   793                           	opt asmopt_off
+   794  07E1  3006               movlw  6
+   795  07E2  00F2               movwf	((??_main+0)+0+2),f
+   796  07E3  300E               movlw	14
+   797  07E4  00F1               movwf	((??_main+0)+0+1),f
+   798  07E5  30B0               	movlw	176
+   799  07E6  00F0               movwf	((??_main+0)+0),f
+   800  07E7                     u2357:
+   801  07E7  0BF0               	decfsz	((??_main+0)+0),f
+   802  07E8  2FE7               	goto	u2357
+   803  07E9  0BF1               	decfsz	((??_main+0)+0+1),f
+   804  07EA  2FE7               	goto	u2357
+   805  07EB  0BF2               	decfsz	((??_main+0)+0+2),f
+   806  07EC  2FE7               	goto	u2357
+   807                           opt asmopt_on
+   808                           
+   809                           	line	74
+   810                           ;bluetoothproject.c: 74: PORTB=0X00;
+   811  07ED  1283               	bcf	status, 5	;RP0=0, select bank0
+   812  07EE  1303               	bcf	status, 6	;RP1=0, select bank0
+   813  07EF  0186               	clrf	(6)	;volatile
+   814                           	line	75
+   815                           	
+   816  07F0                     l1798:	
+   817                           ;bluetoothproject.c: 75: _delay((unsigned long)((1000)*(4000000/4000.0)));
+   818                           	opt asmopt_off
+   819  07F0  3006               movlw  6
+   820  07F1  00F2               movwf	((??_main+0)+0+2),f
+   821  07F2  300E               movlw	14
+   822  07F3  00F1               movwf	((??_main+0)+0+1),f
+   823  07F4  30B0               	movlw	176
+   824  07F5  00F0               movwf	((??_main+0)+0),f
+   825  07F6                     u2367:
+   826  07F6  0BF0               	decfsz	((??_main+0)+0),f
+   827  07F7  2FF6               	goto	u2367
+   828  07F8  0BF1               	decfsz	((??_main+0)+0+1),f
+   829  07F9  2FF6               	goto	u2367
+   830  07FA  0BF2               	decfsz	((??_main+0)+0+2),f
+   831  07FB  2FF6               	goto	u2367
+   832                           opt asmopt_on
+   833                           
+   834                           	line	76
+   835                           	
+   836  07FC                     l570:	
+   837                           	line	79
+   838                           	
+   839  07FC                     l569:	
+   840                           	
+   841  07FC                     l567:	
+   842                           	
+   843  07FC                     l565:	
+   844                           	
+   845  07FC                     l563:	
+   846                           	
+   847  07FC                     l571:	
+   848                           	line	17
+   849  07FC  2EBD               	goto	l561
+   850                           	
+   851  07FD                     l572:	
+   852                           	line	80
+   853                           	
+   854  07FD                     l573:	
+   855                           	global	start
+   856  07FD  120A  118A  2800   	ljmp	start
+   857                           	opt stack 0
+   858                           GLOBAL	__end_of_main
+   859  0800                     	__end_of_main:
+   860 ;; =============== function _main ends ============
+   861                           
+   862                           	signat	_main,88
+   863                           psect	maintext
+   864                           	global	btemp
+   865  007E                     	btemp set 07Eh
+   866                           
+   867                           	DABS	1,126,2	;btemp
+   868                           	global	wtemp0
+   869  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.71a build 6446 
+Symbol Table                                                                                   Thu Jan 05 11:22:49 2023
+
+                 l561 06BD                   l570 07FC                   l562 06C8                   l571 07FC  
+                 l563 07FC                   l572 07FD                   l564 06D1                   l573 07FD  
+                 l565 07FC                   l566 06DA                   l567 07FC                   l568 06FE  
+                 l569 07FC                  l1730 06AC                  l1740 06CE                  l1732 06AF  
+                l1750 06EE                  l1742 06D1                  l1734 06B8                  l1760 0717  
+                l1752 06F1                  l1744 06D7                  l1736 06C5                  l1728 06A8  
+                l1770 0746                  l1762 0723                  l1754 06FE                  l1746 06DA  
+                l1738 06C8                  l1780 0784                  l1772 0752                  l1764 0727  
+                l1756 0706                  l1748 06E0                  l1790 07CE                  l1782 0793  
+                l1774 0771                  l1766 0736                  l1758 0714                  l1792 07D1  
+                l1784 079F                  l1776 0774                  l1768 0742                  l1794 07DD  
+                l1786 07A3                  l1778 0780                  l1796 07E1                  l1788 07AF  
+                l1798 07F0                  _BRGH 04C2                  u2140 06C5                  u2141 06C4  
+                u2150 06CE                  u2207 06F7                  u2151 06CD                  u2160 06D7  
+                u2217 070E                  u2161 06D6                  u2170 06E0                  u2307 0799  
+                u2227 071D                  u2171 06DF                  u2180 0706                  u2317 07A9  
+                u2237 072D                  u2181 0705                  u2327 07B8                  u2247 073C  
+                u2337 07C8                  u2257 074C                  u2347 07D7                  u2267 075B  
+                u2357 07E7                  u2277 076B                  u2197 06E8                  u2367 07F6  
+                u2287 077A                  u2297 078A                  _main 06A8                  btemp 007E  
+                start 0000                 ?_main 0070                 _RCREG 001A                 _RCSTA 0018  
+               _SPBRG 0099                 _PORTB 0006                 _PORTC 0007                 _TRISB 0086  
+               _TRISC 0087                 _TXSTA 0098                 status 0003                 wtemp0 007E  
+        __end_of_main 0800                ??_main 0070        __pcstackCOMMON 0070            __pmaintext 06A8  
+end_of_initialization 06A4   start_initialization 06A4         __size_of_main 0158  
